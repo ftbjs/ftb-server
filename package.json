@@ -1,0 +1,21 @@
+{
+  "name": "@ftb/ftb-service",
+  "version": "0.0.0",
+  "description": "A tool to start a server with Webpack. support hot module replacement and build.",
+  "main": "bin/cli.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ftbjs/ftb-service.git"
+  },
+  "keywords": [
+    "cli",
+    "webpack-service"
+  ],
+  "author": "biyuqiwan@163.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ftbjs/ftb-service/issues"
+  },
+  "homepage": "https://github.com/ftbjs/ftb-service#readme"
+}
