@@ -1,0 +1,32 @@
+{
+  "name": "@ftb/ftb-service",
+  "version": "0.0.0",
+  "description": "cli for ftb service",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json --sourceMap false",
+    "watch": "tsc -w -p ./tsconfig.json"
+  },
+  "main": "lib/index.js",
+  "bin": {
+    "ftb-service": "lib/index.js"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "<biyuqiwan@163.com>",
+  "homepage": "https://github.com/ftbjs/ftb-service/tree/master/packages/cli#readme",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ftbjs/ftb-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ftbjs/ftb-service/issues"
+  }
+}

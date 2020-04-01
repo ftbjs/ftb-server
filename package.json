@@ -1,9 +1,14 @@
 {
-  "name": "@ftb/ftb-service",
+  "name": "ftb-service",
   "version": "0.0.0",
   "description": "A tool to start a server with Webpack. support hot module replacement and build.",
-  "main": "bin/cli.js",
-  "scripts": {},
+  "scripts": {
+    "build": "lerna run build --stream --parallel",
+    "watch": "lerna run watch --stream --parallel",
+    "publish": "npm run build && lerna publish",
+    "clean": "lerna clean --yes && rm -rf ./packages/**/package-lock.json",
+    "bootstrap": "npm i && lerna bootstrap"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ftbjs/ftb-service.git"
@@ -17,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/ftbjs/ftb-service/issues"
   },
-  "homepage": "https://github.com/ftbjs/ftb-service#readme"
+  "homepage": "https://github.com/ftbjs/ftb-service#readme",
+  "devDependencies": {
+    "@types/node": "^13.9.8",
+    "husky": "^4.2.3",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.1.1",
+    "prettier": "^2.0.2",
+    "typescript": "^3.8.3"
+  }
 }
