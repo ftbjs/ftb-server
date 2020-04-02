@@ -14,7 +14,7 @@ if (!ensureExist) {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  shellJs.exec('node packages/cli/lib/index.js server')
+  shellJs.exec('node packages/cli/lib/index.js serve')
 }
 
 if (process.env.NODE_ENV === 'production') {

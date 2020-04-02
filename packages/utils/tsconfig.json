@@ -2,22 +2,17 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./lib",
-    "lib": ["dom", "es2015", "es5"],
     "target": "es5",
     "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
+    "sourceMap": false,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "typeRoots": [
-      "typings",
-      "node_modules/@types"
-    ]
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
+    "src",
+    "index.d.ts"
   ]
 }

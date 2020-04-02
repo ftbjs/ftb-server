@@ -1,14 +1,16 @@
 {
   "name": "ftb-service",
+  "private": true,
+  "root": true,
   "version": "0.0.0",
   "description": "A tool to start a server with Webpack. support hot module replacement and build.",
   "scripts": {
     "build": "lerna run build --stream --parallel",
     "watch": "lerna run watch --stream --parallel",
     "publish": "npm run build && lerna publish",
-    "clean": "lerna clean --yes && rm -rf ./packages/**/package-lock.json",
+    "clean": "lerna clean --yes && rm -rf ./packages/**/package-lock.json && rm -rf ./packages/**/lib",
     "bootstrap": "npm i && lerna bootstrap",
-    "start:dev": "NODE_ENV=production ts-node ./scripts/pipe.ts",
+    "watch:dev": "NODE_ENV=production ts-node ./scripts/pipe.ts",
     "build:prod": "NODE_ENV=development ts-node ./scripts/pipe.ts"
   },
   "husky": {

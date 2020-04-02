@@ -1,6 +1,12 @@
 {
+  "npmClient": "npm",
   "packages": [
     "packages/*"
   ],
+  "command": {
+    "publishConfig": {
+      "access": "public"
+    }
+  },
   "version": "independent"
 }

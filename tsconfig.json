@@ -10,15 +10,6 @@
     "resolveJsonModule": true,
     "noEmit": true,
     /* Experimental Options */
-    "experimentalDecorators": true        /* Enables experimental support for ES7 decorators. */
-  },
-  "include": [
-    "packages/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "public",
-    "lib"
-  ]
+    "experimentalDecorators": true
+  }
 }

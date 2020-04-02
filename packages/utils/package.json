@@ -1,0 +1,29 @@
+{
+  "name": "@ftb/utils",
+  "version": "0.0.0",
+  "description": "A utils tool",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json --sourceMap false",
+    "watch": "tsc -w -p ./tsconfig.json"
+  },
+  "author": "biyuqi <biyuqiwan@163.com>",
+  "homepage": "https://github.com/ftbjs/ftb-service/tree/master/packages/utils#readme",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ftbjs/ftb-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ftbjs/ftb-service/issues"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0"
+  }
+}

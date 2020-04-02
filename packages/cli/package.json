@@ -1,9 +1,9 @@
 {
-  "name": "@ftb/ftb-service",
+  "name": "@ftb/service",
   "version": "0.0.0",
   "description": "cli for ftb service",
   "scripts": {
-    "build": "tsc -p ./tsconfig.json --sourceMap false",
+    "build": "tsc -p ./tsconfig.json",
     "watch": "tsc -w -p ./tsconfig.json"
   },
   "main": "lib/index.js",
@@ -28,5 +28,10 @@
   },
   "bugs": {
     "url": "https://github.com/ftbjs/ftb-service/issues"
+  },
+  "dependencies": {
+    "@types/node": "^13.9.8",
+    "commander": "^5.0.0",
+    "inquirer": "^7.1.0"
   }
 }
