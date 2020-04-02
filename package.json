@@ -7,7 +7,19 @@
     "watch": "lerna run watch --stream --parallel",
     "publish": "npm run build && lerna publish",
     "clean": "lerna clean --yes && rm -rf ./packages/**/package-lock.json",
-    "bootstrap": "npm i && lerna bootstrap"
+    "bootstrap": "npm i && lerna bootstrap",
+    "start:dev": "NODE_ENV=production ts-node ./scripts/pipe.ts",
+    "build:prod": "NODE_ENV=development ts-node ./scripts/pipe.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    ".{js,jsx,ts,tsx,json,md}": [
+      "prettier -c --write **/*"
+    ]
   },
   "repository": {
     "type": "git",
@@ -25,10 +37,13 @@
   "homepage": "https://github.com/ftbjs/ftb-service#readme",
   "devDependencies": {
     "@types/node": "^13.9.8",
+    "@types/shelljs": "^0.8.7",
     "husky": "^4.2.3",
     "lerna": "^3.20.2",
     "lint-staged": "^10.1.1",
     "prettier": "^2.0.2",
+    "shelljs": "^0.8.3",
+    "ts-node": "^8.8.1",
     "typescript": "^3.8.3"
   }
 }

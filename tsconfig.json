@@ -4,9 +4,7 @@
     "target": "es5",
     "module": "commonjs",
     "allowJs": true,
-    "declaration": true,
-    "declarationDir": "./types/",
-    "sourceMap": true,
+    "checkJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -19,7 +17,8 @@
   ],
   "exclude": [
     "node_modules",
-    "lib",
-    "dist"
+    "dist",
+    "public",
+    "lib"
   ]
 }

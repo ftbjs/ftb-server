@@ -25,3 +25,5 @@ lib
 package-lock.json
 
 dist
+
+**/types/

@@ -1,0 +1,8 @@
+/test/fixtures
+**/*.gif
+dist
+lib
+docs
+node_modules
+public
+test
