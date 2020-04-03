@@ -42,9 +42,9 @@ const log = console.log
 const logger: any = {}
 const combineProperty = [...colors, ...bgColors]
 
-// combineProperty.map(item => {
-//   logger[item] = (...info: Array<string>) => log(chalk[item](info.join(' ')))
-//   logger[item].raw = chalk[item]
-// })
+combineProperty.map(item => {
+  logger[item] = (...info: Array<string>) => log(chalk[item](info.join(' ')))
+  logger[item].raw = chalk[item]
+})
 
 export default logger

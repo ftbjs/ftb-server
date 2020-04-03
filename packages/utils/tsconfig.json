@@ -1,18 +1,10 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./lib",
-    "target": "es5",
-    "module": "commonjs",
-    "sourceMap": false,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "outDir": "./lib"
   },
   "include": [
-    "src",
-    "index.d.ts"
+    "src"
   ]
 }

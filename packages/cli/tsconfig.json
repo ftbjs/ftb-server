@@ -1,23 +1,10 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./lib",
-    "lib": ["dom", "es2015", "es5"],
-    "target": "es5",
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "typeRoots": [
-      "typings",
-      "node_modules/@types"
-    ]
+    "outDir": "./lib"
   },
   "include": [
     "src"
-  ],
-  "exclude": [
-    "node_modules"
   ]
 }
