@@ -23,8 +23,10 @@ const ftbDefault: FtbDefault = {
 }
 
 const baseConfig = {
-  entry: `${cwd}/src/index.html`,
-  context: cwd
+  entry: `${cwd}/src/index.js`,
+  template: `${cwd}/public/index.html`,
+  context: cwd,
+  cwd
 }
 
 export function generateConfig() {

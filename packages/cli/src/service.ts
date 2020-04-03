@@ -1,5 +1,6 @@
 import { findExistSync } from '@ftb/utils'
 import { generateConfig } from './utils/generateConfig'
+import * as path from 'path'
 
 export class Service {
   webpackConfig: any
@@ -13,5 +14,9 @@ export class Service {
 
   validEntry(): boolean {
     return findExistSync('', this.webpackConfig.entry)
+  }
+
+  getNodeModulesPath(...arg) {
+    return path.join(__dirname, ...arg)
   }
 }
