@@ -4,4 +4,4 @@ const build = (entry: string, cmd: any) => {
   }
 }
 
-export = build
+export default build

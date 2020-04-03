@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import commander from 'commander'
-import serve = require('./serve')
-import build = require('./build')
+import serve from './serve'
+import build from './build'
 
 commander
   .version('0.0.0', '-v, --version')
