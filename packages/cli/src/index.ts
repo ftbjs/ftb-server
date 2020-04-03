@@ -23,7 +23,7 @@ commander
 commander
   .command('*')
   .description('Type a wrong command. Please try `ftb-service -h`.')
-  .action((name, other) => {
+  .action(() => {
     console.log('Please try `ftb-service -h`, Get the whole feature list.')
   })
 

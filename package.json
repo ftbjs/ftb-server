@@ -13,7 +13,8 @@
     "watch:dev": "NODE_ENV=development ts-node ./scripts/pipe.ts",
     "build:prod": "NODE_ENV=production ts-node ./scripts/pipe.ts",
     "link": "NODE_ENV=localtest ts-node ./scripts/pipe.ts",
-    "prettier": "prettier -c --write **/*"
+    "prettier": "prettier -c --write **/*",
+    "lint": "eslint packages --fix --ext .ts"
   },
   "husky": {
     "hooks": {
@@ -21,6 +22,9 @@
     }
   },
   "lint-staged": {
+    "*.{.ts,.tsx}": [
+      "eslint"
+    ],
     ".{js,jsx,ts,tsx,json,md}": [
       "prettier -c --write **/*"
     ]
@@ -42,6 +46,11 @@
   "devDependencies": {
     "@types/node": "^13.9.8",
     "@types/shelljs": "^0.8.7",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.3",
     "lerna": "^3.20.2",
     "lint-staged": "^10.1.1",
