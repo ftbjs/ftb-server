@@ -27,3 +27,5 @@ package-lock.json
 dist
 
 **/types/
+
+ftb.config.js

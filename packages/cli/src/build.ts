@@ -1,7 +1,5 @@
-const build = (entry: string, cmd: any) => {
-  if (entry === undefined) {
-    console.log('Start build', entry, cmd)
-  }
+const build = () => {
+  console.log('build')
 }
 
 export default build

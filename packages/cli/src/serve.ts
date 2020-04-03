@@ -1,7 +1,9 @@
-const serve = (entry: string, cmd: any) => {
-  if (entry === undefined) {
-    console.log('Start serve...', entry, cmd)
-  }
+import { Service } from './service'
+
+const serve = () => {
+  const service = new Service()
+  console.log(service.validEntry())
+  console.log(service.webpackConfigRaw())
 }
 
 export default serve

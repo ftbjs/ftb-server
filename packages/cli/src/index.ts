@@ -1,24 +1,24 @@
 #!/usr/bin/env node
 
 import commander from 'commander'
+import { logger } from '@ftb/utils'
 import serve from './serve'
 import build from './build'
-import { logger } from '@ftb/utils'
 
 commander.version('0.0.0', '-v, --version').usage(logger.green.raw('<command> [Options]'))
 
 commander
   .command('serve')
   .description(logger.green.raw('Start local server'))
-  .action((entry, cmd) => {
-    serve(entry, cmd)
+  .action(() => {
+    serve()
   })
 
 commander
   .command('build')
   .description(logger.green.raw('Build the project'))
-  .action((entry, cmd) => {
-    build(entry, cmd)
+  .action(() => {
+    build()
   })
 
 commander
