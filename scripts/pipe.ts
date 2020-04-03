@@ -20,3 +20,8 @@ if (process.env.NODE_ENV === 'development') {
 if (process.env.NODE_ENV === 'production') {
   shellJs.exec('node packages/cli/lib/index.js build')
 }
+
+if (process.env.NODE_ENV === 'localtest') {
+  shellJs.cd('packages/cli')
+  shellJs.exec('npm link')
+}
