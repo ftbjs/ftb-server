@@ -14,7 +14,8 @@
     "build:prod": "NODE_ENV=production ts-node ./scripts/pipe.ts",
     "link": "NODE_ENV=localtest ts-node ./scripts/pipe.ts",
     "prettier": "prettier -c --write **/*",
-    "lint": "eslint packages --fix --ext .ts"
+    "lint": "eslint packages --fix --ext .ts",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -44,6 +45,7 @@
   },
   "homepage": "https://github.com/ftbjs/ftb-service#readme",
   "devDependencies": {
+    "@types/jest": "^25.1.5",
     "@types/node": "^13.9.8",
     "@types/shelljs": "^0.8.7",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
@@ -52,10 +54,12 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.3",
+    "jest": "^25.2.6",
     "lerna": "^3.20.2",
     "lint-staged": "^10.1.1",
     "prettier": "^2.0.2",
     "shelljs": "^0.8.3",
+    "ts-jest": "^25.3.0",
     "ts-node": "^8.8.1",
     "typescript": "^3.8.3"
   }

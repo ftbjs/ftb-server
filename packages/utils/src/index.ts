@@ -1,5 +1,7 @@
-import logger from './Logger'
+import logger from './logger'
+import findExistSync from './findExistSync'
 
-export default {
-  logger
+export {
+  logger,
+  findExistSync
 }
