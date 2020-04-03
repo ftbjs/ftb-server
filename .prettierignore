@@ -10,3 +10,9 @@ test
 package.json
 
 ftb.config.js
+tsconfig.json
+jest.config.js
+.prettierignore
+.prettierrc.js
+.eslintrc.js
+.eslintignore

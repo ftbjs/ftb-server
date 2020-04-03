@@ -4,5 +4,5 @@ module.exports = {
   proseWrap: 'never',
   semi: false,
   trailingComma: 'none',
-  arrowParens: "avoid"
+  arrowParens: 'avoid'
 }

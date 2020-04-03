@@ -14,12 +14,5 @@
     /* Experimental Options */
     "experimentalDecorators": true
   },
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "lib",
-    "fixtures",
-    "examples",
-    "__mock__"
-  ]
+  "exclude": ["node_modules", "**/*.spec.ts", "lib", "fixtures", "examples", "__mock__"]
 }

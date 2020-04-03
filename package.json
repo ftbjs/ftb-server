@@ -23,10 +23,10 @@
     }
   },
   "lint-staged": {
-    "*.{.ts,.tsx}": [
-      "eslint"
+    "packages/**/*.{.ts,.tsx}": [
+      "eslint --fix --ext .ts"
     ],
-    ".{js,jsx,ts,tsx,json,md}": [
+    "packages/**/*.{js,jsx,ts,tsx,json,md}": [
       "prettier -c --write **/*"
     ]
   },

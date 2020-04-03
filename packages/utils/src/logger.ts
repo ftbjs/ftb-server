@@ -42,7 +42,7 @@ const log = console.log
 const logger: any = {}
 const combineProperty = [...colors, ...bgColors]
 
-combineProperty.map((item) => {
+combineProperty.map(item => {
   logger[item] = (...info: Array<string>) => log(chalk[item](info.join(' ')))
   logger[item].raw = chalk[item]
 })

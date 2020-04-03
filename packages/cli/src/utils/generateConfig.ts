@@ -5,12 +5,12 @@ import { findExistSync } from '@ftb/utils'
 const cwd = process.cwd()
 
 interface FtbDefault {
-  baseUrl: string;
-  outputDir: string;
+  baseUrl: string
+  outputDir: string
   devServer: {
-    open?: boolean;
-    port?: number;
-  };
+    open?: boolean
+    port?: number
+  }
 }
 
 const ftbDefault: FtbDefault = {
@@ -32,5 +32,5 @@ export function generateConfig() {
   if (findExistSync(baseConfig.context, 'ftb.config.js')) {
     config = require(path.resolve(baseConfig.context, 'ftb.config.js'))
   }
-  return defaultsdeep(config, { ...ftbDefault, ...baseConfig})
+  return defaultsdeep(config, { ...ftbDefault, ...baseConfig })
 }
