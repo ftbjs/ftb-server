@@ -4,9 +4,7 @@ import commander from 'commander'
 import serve from './serve'
 import build from './build'
 
-commander
-  .version('0.0.0', '-v, --version')
-  .usage('<command> [Options]')
+commander.version('0.0.0', '-v, --version').usage('<command> [Options]')
 
 commander
   .command('serve [entry]')

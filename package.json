@@ -12,7 +12,8 @@
     "bootstrap": "npm i && lerna bootstrap",
     "watch:dev": "NODE_ENV=development ts-node ./scripts/pipe.ts",
     "build:prod": "NODE_ENV=production ts-node ./scripts/pipe.ts",
-    "link": "NODE_ENV=localtest ts-node ./scripts/pipe.ts"
+    "link": "NODE_ENV=localtest ts-node ./scripts/pipe.ts",
+    "prettier": "prettier -c --write **/*"
   },
   "husky": {
     "hooks": {

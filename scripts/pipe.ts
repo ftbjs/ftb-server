@@ -4,8 +4,8 @@ import * as fs from 'fs'
 import * as path from 'path'
 import shellJs from 'shelljs'
 
-const cwd:string = process.cwd()
-const ensureExist:boolean = fs.existsSync(path.resolve(cwd, 'packages/cli/lib/index.js'))
+const cwd: string = process.cwd()
+const ensureExist: boolean = fs.existsSync(path.resolve(cwd, 'packages/cli/lib/index.js'))
 
 if (!ensureExist) {
   console.log('Could not find executable file: "packages/cli/lib/index.js"')
