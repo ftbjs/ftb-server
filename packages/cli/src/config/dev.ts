@@ -4,6 +4,7 @@ import * as path from 'path'
 import { base } from './base'
 
 export function dev(api) {
+  api.webpackConfig.mode = 'development'
   return webpackMerge(base(api), {
     mode: 'development',
     devtool: 'inline-source-map',
