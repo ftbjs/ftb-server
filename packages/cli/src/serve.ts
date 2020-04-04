@@ -52,7 +52,7 @@ const serve = async () => {
   const devServer = new WebpackDevServer(compiler, options)
 
   devServer.listen(port, 'localhost', () => {
-    logger.green(`Server runing at http://localhost:${port}`)
+    console.log(`Server is runing at ${logger.green.raw(`http://localhost:${port}`)}`)
   })
 }
 

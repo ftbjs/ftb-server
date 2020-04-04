@@ -1,12 +1,11 @@
-import * as path from 'path'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { getBabelConfig } from '../common/getBabelConfig'
 import { getStyleConfig } from '../common/getStyleConfig'
 import { getCommonConfig } from '../common/getCommonConfig'
+import { getHtmlConfig } from '../common/getHtmlConfig'
 
 export function base(api) {
   const {
-    webpackConfig: { entry, cwd, outputDir },
+    webpackConfig: { entry },
     getNodeModulesPath
   } = api
 
@@ -27,11 +26,6 @@ export function base(api) {
     resolveLoader: {
       modules: ['node_modules', modulePath]
     },
-    plugins: [
-      new HtmlWebpackPlugin({
-        filename: path.join(cwd, `/${outputDir}/index.html`),
-        inject: true
-      })
-    ]
+    plugins: [...getHtmlConfig(api)]
   }
 }

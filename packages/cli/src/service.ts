@@ -1,6 +1,6 @@
+import * as path from 'path'
 import { findExistSync } from '@ftb/utils'
 import { generateConfig } from './utils/generateConfig'
-import * as path from 'path'
 
 export class Service {
   webpackConfig: any

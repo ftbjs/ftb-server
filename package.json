@@ -15,7 +15,8 @@
     "link": "NODE_ENV=localtest ts-node ./scripts/pipe.ts",
     "prettier": "prettier -c --write **/*",
     "lint": "eslint packages --fix --ext .ts",
-    "test": "jest"
+    "test": "jest",
+    "example": "cd example && ftb-service serve"
   },
   "husky": {
     "hooks": {
