@@ -4,7 +4,7 @@ import WebpackDevServer from 'webpack-dev-server'
 import portfinder from 'portfinder'
 import defaultsdeep from 'lodash.defaultsdeep'
 import { logger } from '@ftb/utils'
-import { Service } from './service'
+import { Service } from './Service'
 import { dev } from './config/dev'
 
 const serve = async () => {
