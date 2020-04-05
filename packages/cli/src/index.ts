@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import commander from 'commander'
-import { logger } from '@ftb/utils'
+import { logger } from '@ftb/shared'
 import serve from './serve'
 import build from './build'
 import { getVersion } from './utils/version'

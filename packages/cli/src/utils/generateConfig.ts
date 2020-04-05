@@ -1,6 +1,6 @@
 import * as path from 'path'
 import defaultsdeep from 'lodash.defaultsdeep'
-import { findExistSync } from '@ftb/utils'
+import { findExistSync } from '@ftb/shared'
 
 const cwd = process.cwd()
 

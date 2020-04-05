@@ -1,5 +1,5 @@
 {
-  "name": "@ftb/utils",
+  "name": "@ftb/shared",
   "version": "0.0.0",
   "description": "A utils tool",
   "scripts": {
@@ -7,7 +7,7 @@
     "watch": "tsc -w -p ./tsconfig.json"
   },
   "author": "<biyuqiwan@163.com>",
-  "homepage": "https://github.com/ftbjs/ftb-service/tree/master/packages/utils#readme",
+  "homepage": "https://github.com/ftbjs/ftb-service/tree/master/packages/shared#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "directories": {

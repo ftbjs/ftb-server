@@ -1,5 +1,5 @@
 import webpack from 'webpack'
-import { logger } from '@ftb/utils'
+import { logger } from '@ftb/shared'
 import { prod } from './config/prod'
 import { Service } from './Service'
 

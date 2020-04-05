@@ -3,7 +3,7 @@ import Webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 import portfinder from 'portfinder'
 import defaultsdeep from 'lodash.defaultsdeep'
-import { logger } from '@ftb/utils'
+import { logger } from '@ftb/shared'
 import { Service } from './Service'
 import { dev } from './config/dev'
 

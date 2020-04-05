@@ -1,5 +1,5 @@
 import * as path from 'path'
-import { findExistSync } from '@ftb/utils'
+import { findExistSync } from '@ftb/shared'
 import { generateConfig } from './utils/generateConfig'
 
 export class Service {
