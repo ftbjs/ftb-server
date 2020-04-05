@@ -7,12 +7,12 @@ import { base } from './base'
 
 export function prod(api) {
   api.webpackConfig.mode = 'production'
-  const { baseUrl, context, outputDir } = api.webpackConfig
+  const { publicPath, context, outputDir } = api.webpackConfig
 
   return WebpackMerge(base(api), {
     mode: 'production',
     output: {
-      publicPath: baseUrl,
+      publicPath,
       path: api.joinPath(context, outputDir),
       filename: 'js/[name].[contenthash:8].js',
       chunkFilename: 'js/[name].[id].[chunkhash].js'

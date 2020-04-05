@@ -5,7 +5,7 @@ import { findExistSync } from '@ftb/shared'
 const cwd = process.cwd()
 
 interface FtbDefault {
-  baseUrl: string
+  publicPath: string
   outputDir: string
   devServer: {
     open?: boolean
@@ -14,7 +14,7 @@ interface FtbDefault {
 }
 
 const ftbDefault: FtbDefault = {
-  baseUrl: '/',
+  publicPath: '/',
   outputDir: 'dist',
   devServer: {
     open: false,
