@@ -1,5 +1,5 @@
 import logger from './logger'
 import findExistSync from './findExistSync'
-import { createSchema, validate, validateSync } from './validate'
+import { createSchema, validate } from './validate'
 
-export { logger, findExistSync, createSchema, validate, validateSync }
+export { logger, findExistSync, createSchema, validate }
