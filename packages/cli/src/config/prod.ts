@@ -13,7 +13,7 @@ export function prod(api) {
     mode: 'production',
     output: {
       publicPath: baseUrl,
-      path: api.getNodeModulesPath(context, outputDir),
+      path: api.joinPath(context, outputDir),
       filename: 'js/[name].[contenthash:8].js',
       chunkFilename: 'js/[name].[id].[chunkhash].js'
     },

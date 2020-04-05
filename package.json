@@ -9,6 +9,7 @@
     "watch": "lerna run watch --stream --parallel",
     "publish": "npm run build && lerna publish",
     "clean": "lerna clean --yes && rm -rf ./packages/**/package-lock.json && rm -rf ./packages/**/lib",
+    "clean:package": "rm -rf ./packages/**/package-lock.json",
     "bootstrap": "npm i && lerna bootstrap",
     "watch:dev": "NODE_ENV=development ts-node ./scripts/pipe.ts",
     "build:prod": "NODE_ENV=production ts-node ./scripts/pipe.ts",
