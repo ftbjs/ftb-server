@@ -16,7 +16,7 @@ export class Service {
     return findExistSync('', this.webpackConfig.entry)
   }
 
-  getNodeModulesPath(...arg) {
-    return path.join(__dirname, ...arg)
+  getNodeModulesPath(pos = __dirname, ...arg) {
+    return path.join(pos, ...arg)
   }
 }
