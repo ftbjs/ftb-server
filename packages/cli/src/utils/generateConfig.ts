@@ -1,38 +1,38 @@
 import * as path from 'path'
 import defaultsdeep from 'lodash.defaultsdeep'
-import { findExistSync } from '@ftb/shared'
+import { findExistSync, logger } from '@ftb/shared'
+import { validateSchema, options, Options } from './options'
+
+interface BaseConfig {
+  entry: string
+  template: string
+  context: string
+  cwd: string
+}
 
 const cwd = process.cwd()
 
-interface FtbDefault {
-  publicPath: string
-  outputDir: string
-  devServer: {
-    open?: boolean
-    port?: number
-  }
-}
-
-const ftbDefault: FtbDefault = {
-  publicPath: '/',
-  outputDir: 'dist',
-  devServer: {
-    open: false,
-    port: 9687
-  }
-}
-
-const baseConfig = {
+const baseConfig: BaseConfig = {
   entry: `${cwd}/src/index.js`,
   template: `${cwd}/public/index.html`,
   context: cwd,
   cwd
 }
 
+const defaultOptions = options()
+
+const CustomConfiguration = (): Options => require(path.resolve(baseConfig.context, 'ftb.config.js'))
+
 export function generateConfig() {
-  let config = {}
   if (findExistSync(baseConfig.context, 'ftb.config.js')) {
-    config = require(path.resolve(baseConfig.context, 'ftb.config.js'))
+    const { value, error } = validateSchema(CustomConfiguration())
+
+    if (error !== undefined) {
+      logger.red('Got invalid config schema.')
+      process.exit(0)
+    }
+
+    return defaultsdeep(value, { ...defaultOptions, ...baseConfig })
   }
-  return defaultsdeep(config, { ...ftbDefault, ...baseConfig })
+  return defaultsdeep({ ...defaultOptions, ...baseConfig })
 }

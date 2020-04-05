@@ -2,12 +2,8 @@ export function createSchema(fn) {
   return fn(require('@hapi/joi'))
 }
 
-export function validate(obj, schema, cb) {
-  require('@hapi/joi').validate(obj, schema, {}, err => {
-    if (err) {
-      cb(err.message)
-    }
-  })
+export function validate(obj, schema) {
+  return schema.validate(obj)
 }
 
 export function validateSync(obj, schema) {
