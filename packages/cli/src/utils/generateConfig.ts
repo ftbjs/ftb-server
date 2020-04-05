@@ -16,6 +16,7 @@ const baseConfig: BaseConfig = {
   entry: `${cwd}/src/index.js`,
   template: `${cwd}/public/index.html`,
   context: cwd,
+  // TODO remove cwd, it equals with context field.
   cwd
 }
 
