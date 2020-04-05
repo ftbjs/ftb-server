@@ -7,6 +7,11 @@ export default function build() {
   // Delete the old build dir before a new build start.
   const service = new Service()
 
+  if (!service.validEntry()) {
+    logger.red(`${logger.yellow.raw('Warning: ')}Couldn\'t find the entry file index.js in src directory.`)
+    process.exit(0)
+  }
+
   webpack(prod(service), async (err, stats) => {
     if (err) {
       throw err
