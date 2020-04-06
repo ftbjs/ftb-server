@@ -25,7 +25,9 @@ const serve = async () => {
     disableHostCheck: true,
     watchContentBase: true,
     inline: true,
-    liveReload: true
+    liveReload: true,
+    port: 2020,
+    open: false
   }
 
   service.webpackConfig = defaultsdeep({ devServer: options }, service.webpackConfig)
