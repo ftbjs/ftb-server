@@ -7,6 +7,7 @@ const schema = createSchema(joi =>
     assetsDir: joi.string(),
     indexPath: joi.string(),
     devServer: joi.object(),
+    platform: joi.string(),
     chainWebpack: joi.func()
   })
 )
@@ -17,6 +18,7 @@ export interface Options {
   indexPath: string
   assetsDir: string
   devServer: object
+  platform: 'none' | 'react' | 'vue'
   chainWebpack?: Function
 }
 
@@ -35,6 +37,7 @@ export function options(): Options {
     outputDir: 'dist',
     assetsDir: '',
     indexPath: 'index.html',
-    devServer: {}
+    devServer: {},
+    platform: 'none'
   }
 }
