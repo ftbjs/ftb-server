@@ -1,3 +1,3 @@
 import './index.scss'
 
-document.write('<h1>Hello world</h1>')
+document.querySelector('#app').innerHTML = '<h1>Goodbye 2020</h1>\n<h1>Hello 2021</h1>'
