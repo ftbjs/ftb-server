@@ -1,4 +1,4 @@
-import findExistSync from '../findExistSync'
+import { findExistSync } from '../findExistSync'
 
 jest.mock('fs')
 

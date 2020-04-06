@@ -47,4 +47,4 @@ combineProperty.map(item => {
   logger[item].raw = chalk[item]
 })
 
-export default logger
+export { logger }
