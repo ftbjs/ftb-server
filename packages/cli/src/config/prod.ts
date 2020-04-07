@@ -15,23 +15,23 @@ export function prod(api) {
       publicPath,
       path: api.joinPath(context, outputDir),
       filename: 'js/[name].[contenthash:8].js',
-      chunkFilename: 'js/[name].[id].[chunkhash].js'
+      chunkFilename: 'js/[name].[id].[contenthash:8].js'
     },
     optimization: {
       splitChunks: {
         cacheGroups: {
-          commons: {
-            name: 'commons',
-            chunks: 'all',
-            minChunks: 2,
-            minSize: 1,
-            priority: 0
-          },
-          vendor: {
-            name: 'vendor',
+          vendors: {
+            name: 'chunk-vendors',
             test: /[\\/]node_modules[\\/]/,
-            chunks: 'all',
-            priority: 10
+            priority: -10,
+            chunks: 'initial'
+          },
+          common: {
+            name: 'chunk-common',
+            minChunks: 2,
+            priority: -20,
+            chunks: 'initial',
+            reuseExistingChunk: true
           }
         }
       },
@@ -53,7 +53,9 @@ export function prod(api) {
       ]
     },
     plugins: [
-      new Webpack.HashedModuleIdsPlugin(),
+      new Webpack.HashedModuleIdsPlugin({
+        hashDigest: 'hex'
+      }),
       new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash:8].css',
         chunkFilename: 'css/[name].[contenthash:8].css'
