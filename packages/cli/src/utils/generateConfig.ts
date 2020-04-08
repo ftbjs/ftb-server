@@ -7,7 +7,6 @@ interface BaseConfig {
   entry: string
   template: string
   context: string
-  cwd: string
 }
 
 const cwd = process.cwd()
@@ -15,9 +14,7 @@ const cwd = process.cwd()
 const baseConfig: BaseConfig = {
   entry: `${cwd}/src/index.js`,
   template: `${cwd}/public/index.html`,
-  context: cwd,
-  // TODO remove cwd, it equals with context field.
-  cwd
+  context: cwd
 }
 
 const defaultOptions = options()

@@ -10,7 +10,7 @@ export function dev(api) {
     devtool: 'inline-source-map',
     output: {
       publicPath: '/',
-      path: path.resolve(api.webpackConfig.cwd, api.webpackConfig.outputDir),
+      path: path.resolve(api.webpackConfig.context, api.webpackConfig.outputDir),
       filename: '[name].js'
     },
     plugins: [new Webpack.NamedModulesPlugin(), new Webpack.HotModuleReplacementPlugin()]

@@ -3,15 +3,15 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 export function getHtmlConfig(api) {
   const {
-    webpackConfig: { cwd, outputDir, template }
+    webpackConfig: { context, outputDir, template }
   } = api
   const htmlTemplate = {
-    template: path.resolve(cwd, template)
+    template: path.resolve(context, template)
   }
   return [
     new HtmlWebpackPlugin({
       ...htmlTemplate,
-      filename: path.join(cwd, `/${outputDir}/index.html`),
+      filename: path.join(context, `/${outputDir}/index.html`),
       inject: true
     })
   ]
