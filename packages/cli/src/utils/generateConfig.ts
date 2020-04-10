@@ -3,7 +3,7 @@ import defaultsdeep from 'lodash.defaultsdeep'
 import { findExistSync, logger } from '@ftb/shared'
 import { validateSchema, options, Options } from './options'
 
-interface BaseConfig {
+export interface BaseConfig {
   entry: string
   template: string
   context: string

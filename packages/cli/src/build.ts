@@ -1,11 +1,9 @@
 import webpack from 'webpack'
 import { logger } from '@ftb/shared'
 import { prod } from './config/prod'
-import { Service } from './Service'
 
-export default function build() {
+export default function build(service) {
   // Delete the old build dir before a new build start.
-  const service = new Service()
 
   if (!service.validEntry()) {
     logger.red(`${logger.yellow.raw('Warning: ')}Couldn\'t find the entry file index.js in src directory.`)

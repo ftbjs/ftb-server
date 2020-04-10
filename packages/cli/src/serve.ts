@@ -4,12 +4,9 @@ import WebpackDevServer from 'webpack-dev-server'
 import portfinder from 'portfinder'
 import defaultsdeep from 'lodash.defaultsdeep'
 import { logger } from '@ftb/shared'
-import { Service } from './Service'
 import { dev } from './config/dev'
 
-const serve = async () => {
-  const service = new Service()
-
+const serve = async service => {
   if (!service.validEntry()) {
     logger.red(`${logger.yellow.raw('Warning: ')}Couldn\'t find the entry file index.js in src directory.`)
     process.exit(0)
@@ -31,10 +28,10 @@ const serve = async () => {
   }
 
   service.webpackConfig = defaultsdeep({ devServer: options }, service.webpackConfig)
-  portfinder.basePort = service.webpackConfig.devServer.port
+  portfinder.basePort = (service.webpackConfig.devServer as any).port
   const autoPort = await portfinder.getPortPromise()
   if (autoPort) {
-    service.webpackConfig.devServer.port = autoPort
+    ;(service.webpackConfig.devServer as any).port = autoPort
   } else {
     logger.red('Can not find an avaiable port, please check your local port.')
   }
@@ -54,7 +51,7 @@ const serve = async () => {
   const devServer = new WebpackDevServer(compiler, options)
 
   devServer.listen(port, 'localhost', () => {
-    console.log(`Server is runing at ${logger.green.raw(`http://localhost:${port}`)}`)
+    console.log(`App is running at: ${logger.green.raw(`http://localhost:${port}`)}`)
   })
 }
 
