@@ -15,16 +15,16 @@ commander.version(getVersion(), '-v, --version').usage(logger.green.raw('<comman
 commander
   .command('serve')
   .description(logger.green.raw('Start local server'))
-  .action(() => {
-    beforeStart(service)
+  .action(async () => {
+    await beforeStart(service)
     serve(service)
   })
 
 commander
   .command('build')
   .description(logger.green.raw('Build the project'))
-  .action(() => {
-    beforeStart(service)
+  .action(async () => {
+    await beforeStart(service)
     build(service)
   })
 
