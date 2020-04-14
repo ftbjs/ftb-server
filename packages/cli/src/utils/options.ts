@@ -22,9 +22,11 @@ export interface Options {
   chainWebpack?: Function
 }
 
+type Error = undefined | { _original: object; details: Array<any> }
+
 interface ValidateSchema {
   value: {} | Options
-  error: undefined | Error
+  error: Error
 }
 
 export function validateSchema(options: Options): ValidateSchema {

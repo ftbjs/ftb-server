@@ -26,7 +26,11 @@ export function generateConfig() {
     const { value, error } = validateSchema(CustomConfiguration())
 
     if (error !== undefined) {
-      logger.red('Got invalid config schema.')
+      logger.red(
+        `Finding the wrong configuration in ${logger.yellow.raw('ftb.config.js')} --> ${logger.yellow.raw(
+          error.details[0].message
+        )}`
+      )
       process.exit(0)
     }
 
