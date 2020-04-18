@@ -3,7 +3,7 @@ import Webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 import portfinder from 'portfinder'
 import defaultsdeep from 'lodash.defaultsdeep'
-import { logger } from '@ftb/shared'
+import { logger, boxen } from '@ftb/shared'
 import { dev } from './config/dev'
 
 const serve = async service => {
@@ -51,7 +51,12 @@ const serve = async service => {
   const devServer = new WebpackDevServer(compiler, options)
 
   devServer.listen(port, 'localhost', () => {
-    console.log(`App is running at: ${logger.green.raw(`http://localhost:${port}`)}`)
+    const msg = []
+    msg.push(logger.green.raw('App is running at:\n\n'))
+    msg.push(`Local: ${logger.cyan.raw(`http://localhost:${port}\n\n`)}`)
+    msg.push(logger.blackBright.raw('Copied local address to clipboard!\n\n'))
+    msg.push(logger.blackBright.raw('You can also specify port and auto-open by ftb.config.js!'))
+    console.log(boxen(msg.join(''), { padding: 1, borderColor: 'green' }))
   })
 }
 
