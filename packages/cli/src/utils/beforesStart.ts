@@ -13,6 +13,20 @@ export async function beforeStart(api) {
     return Promise.resolve()
   }
 
+  // Check when the package.json doesn't have the dependencies
+  const { devDependencies, dependencies } = require(`${context}/${packageJson}`)
+  if (!devDependencies && !dependencies) {
+    return Promise.resolve()
+  }
+
+  if (devDependencies && Object.keys(devDependencies).length === 0) {
+    return Promise.resolve()
+  }
+
+  if (dependencies && Object.keys(dependencies).length === 0) {
+    return Promise.resolve()
+  }
+
   if (!findExistSync(context, nodeModules)) {
     logger.yellow(`We found current work directory has ${packageJson} file.`)
     logger.yellow(`But we cannot found that the ${nodeModules} was not installed. \n\n`)
