@@ -1,32 +1,31 @@
-
 import { Chart } from '@antv/g2'
 
 fetch('https:/g2.antv.vision/zh/examples/data/life.json')
   .then(res => res.json())
   .then(data => {
-    const years = Object.keys(data);
+    const years = Object.keys(data)
     const colorsMap = {
       'Europe & Central Asia': '#f49d37',
       'East Asia & Pacific': '#f03838',
       'South Asia': '#35d1d1',
       'Middle East & North Africa': '#5be56b',
       'Sub-Saharan Africa': '#4e7af0',
-      'America': '#ebcc21',
-    };
+      America: '#ebcc21'
+    }
 
-    let count = 0;
-    let chart;
-    let interval;
+    let count = 0
+    let chart
+    let interval
 
     function countUp() {
-      const year = years[count];
+      const year = years[count]
       if (count === 0) {
         chart = new Chart({
           container: 'container1',
           autoFit: true,
           height: 500
-        });
-        chart.data(data[year]);
+        })
+        chart.data(data[year])
         chart.scale({
           life: {
             min: 0,
@@ -45,7 +44,7 @@ fetch('https:/g2.antv.vision/zh/examples/data/life.json')
           },
           population: {
             type: 'pow',
-            base: 2,
+            base: 2
           },
           continent: {
             values: [
@@ -57,20 +56,20 @@ fetch('https:/g2.antv.vision/zh/examples/data/life.json')
               'America'
             ]
           }
-        });
+        })
 
         // 配置 tooltip
         chart.tooltip({
           showMarkers: false,
           title: 'country'
-        });
+        })
 
         // 配置图例
-        chart.legend('population', false);
+        chart.legend('population', false)
         chart.legend('continent', {
           flipPage: false,
           position: 'bottom-left'
-        });
+        })
 
         // 坐标轴配置
         chart.axis('life', {
@@ -85,7 +84,7 @@ fetch('https:/g2.antv.vision/zh/examples/data/life.json')
               stroke: '#D9D9D9'
             }
           }
-        });
+        })
         chart.axis('income', {
           title: {
             style: {
@@ -99,14 +98,14 @@ fetch('https:/g2.antv.vision/zh/examples/data/life.json')
                 stroke: '#D9D9D9'
               }
             }
-          },
-        });
+          }
+        })
 
         // 绘制散点图
         chart
           .point()
           .position('income*life')
-          .color('continent', (val) => colorsMap[val])
+          .color('continent', val => colorsMap[val])
           .size('population', [1, 25])
           .shape('circle')
           .animate({
@@ -118,7 +117,7 @@ fetch('https:/g2.antv.vision/zh/examples/data/life.json')
           .tooltip('life*income*population')
           .style({
             stroke: '#000'
-          });
+          })
 
         // 绘制标注文本
         chart.annotation().text({
@@ -131,11 +130,11 @@ fetch('https:/g2.antv.vision/zh/examples/data/life.json')
             fillOpacity: 0.3
           },
           top: false,
-          animate: false,
-        });
-        chart.render();
+          animate: false
+        })
+        chart.render()
       } else if (count < years.length) {
-        chart.annotation().clear(true);
+        chart.annotation().clear(true)
         chart.annotation().text({
           position: ['50%', '50%'],
           content: year,
@@ -146,19 +145,18 @@ fetch('https:/g2.antv.vision/zh/examples/data/life.json')
             fillOpacity: 0.3
           },
           top: false,
-          animate: false,
-
-        });
-        chart.changeData(data[year]);
+          animate: false
+        })
+        chart.changeData(data[year])
       }
 
-      ++count;
+      ++count
 
       if (count === years.length) {
-        clearInterval(interval);
+        clearInterval(interval)
       }
     }
 
-    countUp();
-    interval = setInterval(countUp, 200);
-  });
+    countUp()
+    interval = setInterval(countUp, 200)
+  })

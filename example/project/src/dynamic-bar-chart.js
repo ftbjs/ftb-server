@@ -1,71 +1,69 @@
-import { Chart, registerAnimation } from '@antv/g2';
+import { Chart, registerAnimation } from '@antv/g2'
 
 registerAnimation('label-appear', (element, animateCfg, cfg) => {
-  const label = element.getChildren()[0];
-  const coordinate = cfg.coordinate;
-  const startX = coordinate.start.x;
-  const finalX = label.attr('x');
-  const labelContent = label.attr('text');
+  const label = element.getChildren()[0]
+  const coordinate = cfg.coordinate
+  const startX = coordinate.start.x
+  const finalX = label.attr('x')
+  const labelContent = label.attr('text')
 
-  label.attr('x', startX);
-  label.attr('text', 0);
+  label.attr('x', startX)
+  label.attr('text', 0)
 
-  const distance = finalX - startX;
-  label.animate((ratio) => {
-    const position = startX + distance * ratio;
-    const text = (labelContent * ratio).toFixed(0);
+  const distance = finalX - startX
+  label.animate(ratio => {
+    const position = startX + distance * ratio
+    const text = (labelContent * ratio).toFixed(0)
 
     return {
       x: position,
-      text,
-    };
-  }, animateCfg);
-});
+      text
+    }
+  }, animateCfg)
+})
 
 registerAnimation('label-update', (element, animateCfg, cfg) => {
-  const startX = element.attr('x');
-  const startY = element.attr('y');
+  const startX = element.attr('x')
+  const startY = element.attr('y')
   // @ts-ignore
-  const finalX = cfg.toAttrs.x;
+  const finalX = cfg.toAttrs.x
   // @ts-ignore
-  const finalY = cfg.toAttrs.y;
-  const labelContent = element.attr('text');
+  const finalY = cfg.toAttrs.y
+  const labelContent = element.attr('text')
   // @ts-ignore
-  const finalContent = cfg.toAttrs.text;
+  const finalContent = cfg.toAttrs.text
 
-  const distanceX = finalX - startX;
-  const distanceY = finalY - startY;
-  const numberDiff = +finalContent - +labelContent;
+  const distanceX = finalX - startX
+  const distanceY = finalY - startY
+  const numberDiff = +finalContent - +labelContent
 
-  element.animate((ratio) => {
-    const positionX = startX + distanceX * ratio;
-    const positionY = startY + distanceY * ratio;
-    const text = (+labelContent + numberDiff * ratio).toFixed(0);
+  element.animate(ratio => {
+    const positionX = startX + distanceX * ratio
+    const positionY = startY + distanceY * ratio
+    const text = (+labelContent + numberDiff * ratio).toFixed(0)
 
     return {
       x: positionX,
       y: positionY,
-      text,
-    };
-  }, animateCfg);
-
-
-});
+      text
+    }
+  }, animateCfg)
+})
 
 function handleData(source) {
   source.sort((a, b) => {
-    return a.value - b.value;
-  });
+    return a.value - b.value
+  })
 
-  return source;
+  return source
 }
 
 fetch('https:/g2.antv.vision/zh/examples/data/china-gdp.json')
   .then(res => res.json())
   .then(data => {
-    let count = 0;
-    let chart;
-    let interval;
+    let count = 0
+    let chart
+    let interval
 
     function countUp() {
       if (count === 0) {
@@ -73,13 +71,13 @@ fetch('https:/g2.antv.vision/zh/examples/data/china-gdp.json')
           container: 'container2',
           autoFit: true,
           height: 500,
-          padding: [ 20, 60 ]
-        });
+          padding: [20, 60]
+        })
         // @ts-ignore
-        chart.data(handleData(Object.values(data)[count]));
-        chart.coordinate('rect').transpose();
-        chart.legend(false);
-        chart.tooltip(false);
+        chart.data(handleData(Object.values(data)[count]))
+        chart.coordinate('rect').transpose()
+        chart.legend(false)
+        chart.tooltip(false)
         // chart.axis('value', false);
         chart.axis('city', {
           animateOption: {
@@ -88,7 +86,7 @@ fetch('https:/g2.antv.vision/zh/examples/data/china-gdp.json')
               easing: 'easeLinear'
             }
           }
-        });
+        })
         chart.annotation().text({
           position: ['95%', '90%'],
           content: Object.keys(data)[count],
@@ -98,13 +96,13 @@ fetch('https:/g2.antv.vision/zh/examples/data/china-gdp.json')
             fill: '#ddd',
             textAlign: 'end'
           },
-          animate: false,
-        });
+          animate: false
+        })
         chart
           .interval()
           .position('city*value')
           .color('city')
-          .label('value', (value) => {
+          .label('value', value => {
             // if (value !== 0) {
             return {
               animate: {
@@ -120,10 +118,11 @@ fetch('https:/g2.antv.vision/zh/examples/data/china-gdp.json')
                   easing: 'easeLinear'
                 }
               },
-              offset: 5,
-            };
+              offset: 5
+            }
             // }
-          }).animate({
+          })
+          .animate({
             appear: {
               duration: 1000,
               easing: 'easeLinear'
@@ -132,11 +131,11 @@ fetch('https:/g2.antv.vision/zh/examples/data/china-gdp.json')
               duration: 1000,
               easing: 'easeLinear'
             }
-          });
+          })
 
-        chart.render();
+        chart.render()
       } else {
-        chart.annotation().clear(true);
+        chart.annotation().clear(true)
         chart.annotation().text({
           position: ['95%', '90%'],
           content: Object.keys(data)[count],
@@ -146,19 +145,19 @@ fetch('https:/g2.antv.vision/zh/examples/data/china-gdp.json')
             fill: '#ddd',
             textAlign: 'end'
           },
-          animate: false,
-        });
+          animate: false
+        })
         // @ts-ignore
-        chart.changeData(handleData(Object.values(data)[count]));
+        chart.changeData(handleData(Object.values(data)[count]))
       }
 
-      ++count;
+      ++count
 
       if (count === Object.keys(data).length) {
-        clearInterval(interval);
+        clearInterval(interval)
       }
     }
 
-    countUp();
-    interval = setInterval(countUp, 1200);
-  });
+    countUp()
+    interval = setInterval(countUp, 1200)
+  })
