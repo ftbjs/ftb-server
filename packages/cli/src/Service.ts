@@ -1,10 +1,9 @@
 import * as path from 'path'
 import { findExistSync } from '@ftb/shared'
 import { generateConfig } from './utils/generateConfig'
-import { BaseConfig } from './utils/generateConfig'
-import { Options } from './utils/options'
+import { BasePathConfig, Options } from './interface'
 
-type WebpackConfig = BaseConfig & Options
+type WebpackConfig = BasePathConfig & Options
 
 export class Service {
   webpackConfig: WebpackConfig

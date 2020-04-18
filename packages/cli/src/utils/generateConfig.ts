@@ -1,17 +1,12 @@
 import * as path from 'path'
 import defaultsdeep from 'lodash.defaultsdeep'
 import { findExistSync, logger } from '@ftb/shared'
-import { validateSchema, options, Options } from './options'
-
-export interface BaseConfig {
-  entry: string
-  template: string
-  context: string
-}
+import { validateSchema, options } from './options'
+import { Options, BasePathConfig } from '../interface'
 
 const cwd = process.cwd()
 
-const baseConfig: BaseConfig = {
+const baseConfig: BasePathConfig = {
   entry: `${cwd}/src/index.js`,
   template: `${cwd}/public/index.html`,
   context: cwd
