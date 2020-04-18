@@ -17,7 +17,8 @@
     "prettier": "prettier -c --write **/*",
     "lint": "eslint packages --fix --ext .ts",
     "test": "jest",
-    "example": "cd example && ftb-service serve"
+    "example:project": "cd example/project && ftb-service serve",
+    "example:library": "cd example/library && ftb-service serve"
   },
   "husky": {
     "hooks": {
