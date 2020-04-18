@@ -4,19 +4,20 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 import OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 import { base } from './base'
+import { getOutputConfig } from '../common/getOutputConfig'
 
 export function prod(api) {
   api.webpackConfig.mode = 'production'
-  const { publicPath, context, outputDir } = api.webpackConfig
+  const { publicPath, context, outputDir, externals, packages } = api.webpackConfig
 
   return WebpackMerge(base(api), {
     mode: 'production',
     output: {
       publicPath,
       path: api.joinPath(context, outputDir),
-      filename: 'js/[name].[contenthash:8].js',
-      chunkFilename: 'js/[name].[id].[contenthash:8].js'
+      ...getOutputConfig(api)
     },
+    externals: externals || {},
     optimization: {
       splitChunks: {
         cacheGroups: {
@@ -56,10 +57,15 @@ export function prod(api) {
       new Webpack.HashedModuleIdsPlugin({
         hashDigest: 'hex'
       }),
-      new MiniCssExtractPlugin({
-        filename: 'css/[name].[contenthash:8].css',
-        chunkFilename: 'css/[name].[contenthash:8].css'
-      })
+      // For build library
+      packages
+        ? new MiniCssExtractPlugin({
+            filename: `${packages.filename}.min.css`
+          })
+        : new MiniCssExtractPlugin({
+            filename: 'css/[name].[contenthash:8].css',
+            chunkFilename: 'css/[name].[contenthash:8].css'
+          })
     ]
   })
 }
