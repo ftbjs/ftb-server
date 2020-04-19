@@ -66,6 +66,7 @@
     "@types/inquirer": "^6.5.0",
     "@types/node": "^13.9.8",
     "@types/webpack": "^4.41.10",
-    "@types/webpack-dev-server": "^3.10.1"
+    "@types/webpack-dev-server": "^3.10.1",
+    "webpack-chain": "^6.4.0"
   }
 }

@@ -11,8 +11,11 @@ const serve = async service => {
     logger.red(`${logger.yellow.raw('Warning: ')}Couldn\'t find the entry file index.js in src directory.`)
     process.exit(0)
   }
-
+  service.init()
   const devConfig = dev(service)
+
+  // Support user change webpack config (WIP)
+  console.log(service.resolveWebpackConfig())
 
   const options = {
     contentBase: [path.resolve(service.webpackConfig.context, 'dist')],
