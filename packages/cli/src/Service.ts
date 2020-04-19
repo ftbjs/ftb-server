@@ -25,6 +25,7 @@ export class Service {
   }
 
   resolveChainableWebpackConfig() {
+    // https://github.com/Yatoo2018/webpack-chain/tree/zh-cmn-Hans
     const chainableConfig = new Config()
     this.webpackChainFns.forEach(fn => fn(chainableConfig))
     return chainableConfig

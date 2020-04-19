@@ -3,14 +3,20 @@ import { logger } from '@ftb/shared'
 import { prod } from './config/prod'
 
 export default function build(service) {
+  process.env.NODE_ENV = 'production'
   // Delete the old build dir before a new build start.
+
+  prod(service)
+
+  // Ensure high priority for user-defined webpack configurations
+  service.init()
 
   if (!service.validEntry()) {
     logger.red(`${logger.yellow.raw('Warning: ')}Couldn\'t find the entry file index.js in src directory.`)
     process.exit(0)
   }
 
-  webpack(prod(service), async (err, stats) => {
+  webpack(service.resolveWebpackConfig(), async (err, stats) => {
     if (err) {
       throw err
     }
