@@ -1,6 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-import OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { base } from './base'
 
 export function prod(api) {
