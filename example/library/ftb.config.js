@@ -5,10 +5,6 @@ module.exports = {
   },
   packages: true,
   chainWebpack: (config) => {
-    config.devServer
-      .open(true)
-      .port(9999)
-      .end()
     if (process.env.NODE_ENV === 'production') {
       config
         .output
