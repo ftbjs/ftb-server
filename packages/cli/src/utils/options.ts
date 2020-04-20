@@ -10,7 +10,7 @@ const schema = createSchema(joi =>
     devServer: joi.object(),
     platform: joi.string(),
     chainWebpack: joi.func(),
-    packages: joi.object().allow('library', 'libraryTarget', 'filename'),
+    packages: joi.boolean(),
     externals: joi.object()
   })
 )

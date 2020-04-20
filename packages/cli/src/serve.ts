@@ -1,5 +1,5 @@
 import * as path from 'path'
-import Webpack from 'webpack'
+import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 import portfinder from 'portfinder'
 import defaultsdeep from 'lodash.defaultsdeep'
@@ -7,12 +7,17 @@ import { logger, boxen } from '@ftb/shared'
 import { dev } from './config/dev'
 
 const serve = async service => {
+  process.env.NODE_ENV = 'development'
+
   if (!service.validEntry()) {
     logger.red(`${logger.yellow.raw('Warning: ')}Couldn\'t find the entry file index.js in src directory.`)
     process.exit(0)
   }
 
-  const devConfig = dev(service)
+  dev(service)
+
+  // Ensure high priority for user-defined webpack configurations
+  service.init()
 
   const options = {
     contentBase: [path.resolve(service.webpackConfig.context, 'dist')],
@@ -27,28 +32,33 @@ const serve = async service => {
     open: false
   }
 
-  service.webpackConfig = defaultsdeep({ devServer: options }, service.webpackConfig)
-  portfinder.basePort = (service.webpackConfig.devServer as any).port
+  const devServerConfig = defaultsdeep({ devServer: service.webpackConfig.devServer }, { devServer: options })
+
+  let webpackConfig = service.resolveWebpackConfig()
+
+  webpackConfig = defaultsdeep({}, devServerConfig, webpackConfig)
+
+  portfinder.basePort = (webpackConfig.devServer as any).port
   const autoPort = await portfinder.getPortPromise()
   if (autoPort) {
-    ;(service.webpackConfig.devServer as any).port = autoPort
+    ;(webpackConfig.devServer as any).port = autoPort
   } else {
     logger.red('Can not find an avaiable port, please check your local port.')
   }
 
-  const defaultDevConfig = defaultsdeep({ devServer: service.webpackConfig.devServer }, devConfig)
-  const { port } = defaultDevConfig.devServer
+  // const defaultDevConfig = defaultsdeep({ devServer: webpackConfig.devServer }, devConfig)
+  const { port } = webpackConfig.devServer
   const rawHotUrl = `webpack-dev-server/client?http://localhost:${port}/`
-  const entry = defaultDevConfig.entry.app
+  const entry = webpackConfig.entry.app
 
   if (typeof entry === 'string') {
-    defaultDevConfig.entry.app = [rawHotUrl, entry]
+    webpackConfig.entry.app = [rawHotUrl, entry]
   }
 
-  WebpackDevServer.addDevServerEntrypoints(defaultDevConfig, options)
+  WebpackDevServer.addDevServerEntrypoints(webpackConfig, devServerConfig.devServer)
 
-  const compiler = Webpack(defaultDevConfig)
-  const devServer = new WebpackDevServer(compiler, options)
+  const compiler = webpack(webpackConfig)
+  const devServer = new WebpackDevServer(compiler, devServerConfig.devServer)
 
   devServer.listen(port, 'localhost', () => {
     const msg = []
