@@ -3,8 +3,6 @@ import webpack from 'webpack'
 import { base } from './base'
 
 export function dev(api) {
-  api.webpackConfig.mode = 'development'
-
   base(api)
 
   api.chainWebpack(config => {

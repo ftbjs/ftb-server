@@ -4,9 +4,8 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { base } from './base'
 
 export function prod(api) {
-  const { publicPath, context, outputDir } = api.webpackConfig
-
   base(api)
+  const { publicPath, context, outputDir } = api.webpackConfig
 
   api.chainWebpack(config => {
     config

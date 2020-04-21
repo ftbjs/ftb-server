@@ -47,7 +47,7 @@ export function base(api) {
       .rule('css')
       .test(/\.(sa|sc|c)ss$/)
       .use('style-loader')
-      .loader(api.webpackConfig.mode === 'development' ? require.resolve('style-loader') : MiniCssExtractPlugin.loader)
+      .loader(process.env.NODE_ENV === 'development' ? require.resolve('style-loader') : MiniCssExtractPlugin.loader)
       .end()
       .use('css-loader')
       .loader(require.resolve('css-loader'))
