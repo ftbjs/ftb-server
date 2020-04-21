@@ -1,6 +1,7 @@
 import * as path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { findExistSync } from '@ftb/shared'
 
 export function base(api) {
   const {
@@ -10,6 +11,7 @@ export function base(api) {
 
   const entryName = 'app'
   const modulePath = getNodeModulesPath('../node_modules')
+  const hasHtmlTemplate = findExistSync(context, template)
 
   api.chainWebpack(config => {
     config.context(context).entry(entryName).add(entry).end()
@@ -94,27 +96,19 @@ export function base(api) {
 
     config.resolveLoader.modules.add('node_modules').add(modulePath).end()
 
-    if (packages && process.env.NODE_ENV === 'development') {
-      config.plugin('html').use(HtmlWebpackPlugin, [
-        {
+    const htmlOptions = hasHtmlTemplate
+      ? {
+          template: path.resolve(context, template),
           filename: path.join(context, `/${outputDir}/index.html`),
           inject: true
         }
-      ])
-    }
-
-    if (!packages) {
-      const htmlTemplate = {
-        template: path.resolve(context, template)
-      }
-
-      config.plugin('html').use(HtmlWebpackPlugin, [
-        {
-          ...htmlTemplate,
+      : {
           filename: path.join(context, `/${outputDir}/index.html`),
           inject: true
         }
-      ])
+
+    if (!packages || (packages && process.env.NODE_ENV === 'development')) {
+      config.plugin('html').use(HtmlWebpackPlugin, [htmlOptions])
     }
   })
 }
