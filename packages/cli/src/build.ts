@@ -1,11 +1,12 @@
 import webpack from 'webpack'
 import { logger } from '@ftb/shared'
 import { prod } from './config/prod'
+import { deleteOldFolder } from './utils/deleteOldFolder'
 
 export default function build(service) {
   process.env.NODE_ENV = 'production'
-  // Delete the old build dir before a new build start.
 
+  deleteOldFolder(service)
   prod(service)
 
   // Ensure high priority for user-defined webpack configurations
