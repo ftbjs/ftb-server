@@ -35,11 +35,12 @@ ftb-service build
 ```
 
 ## Required
+
 You need to have a src folder. and its has a index.js file. then run the `ftb-service serve` or `ftb-service build`. For more information please see [Example](https://github.com/ftbjs/ftb-service/tree/master/example)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/ftbjs/ftb-service/issues). You can also take a look at the [contributing guide]( ).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/ftbjs/ftb-service/issues). You can also take a look at the [contributing guide]().
 
 ## Show your support
 
@@ -47,8 +48,8 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2020 [biyuqiwan@163.com](https://github.com/BiYuqi).<br />
-This project is [MIT](https://github.com/ftbjs/ftb-service/blob/master/LICENSE) licensed.
+Copyright © 2020 [biyuqiwan@163.com](https://github.com/BiYuqi).<br /> This project is [MIT](https://github.com/ftbjs/ftb-service/blob/master/LICENSE) licensed.
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

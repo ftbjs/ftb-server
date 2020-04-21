@@ -47,4 +47,5 @@ export interface BasePathConfig {
   entry: string
   template: string
   context: string
+  favicon: string
 }

@@ -5,13 +5,14 @@ import { findExistSync } from '@ftb/shared'
 
 export function base(api) {
   const {
-    webpackConfig: { entry, context, outputDir, template, packages },
+    webpackConfig: { entry, context, outputDir, template, packages, favicon },
     getNodeModulesPath
   } = api
 
   const entryName = 'app'
   const modulePath = getNodeModulesPath('../node_modules')
   const hasHtmlTemplate = findExistSync(context, template)
+  const hasFavicon = findExistSync(context, favicon)
 
   api.chainWebpack(config => {
     config.context(context).entry(entryName).add(entry).end()
@@ -106,6 +107,10 @@ export function base(api) {
           filename: path.join(context, `/${outputDir}/index.html`),
           inject: true
         }
+
+    if (hasFavicon) {
+      ;(htmlOptions as any).favicon = path.resolve(context, favicon)
+    }
 
     if (!packages || (packages && process.env.NODE_ENV === 'development')) {
       config.plugin('html').use(HtmlWebpackPlugin, [htmlOptions])

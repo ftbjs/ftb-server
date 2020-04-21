@@ -9,6 +9,7 @@ const cwd = process.cwd()
 const baseConfig: BasePathConfig = {
   entry: `${cwd}/src/index.js`,
   template: `${cwd}/public/index.html`,
+  favicon: `${cwd}/public/favicon.ico`,
   context: cwd
 }
 
