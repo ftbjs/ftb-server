@@ -4,7 +4,7 @@ import { logger } from '@ftb/shared'
 import { prod } from './config/prod'
 import { deleteOldFolder } from './utils/deleteOldFolder'
 
-export default function build(service, options: string) {
+export default function build(service, options) {
   process.env.NODE_ENV = 'production'
 
   deleteOldFolder(service)

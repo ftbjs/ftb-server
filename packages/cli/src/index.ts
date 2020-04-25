@@ -9,7 +9,7 @@ import { Service } from './Service'
 import { beforeStart } from './utils/beforesStart'
 
 const service = new Service()
-const ALLOW_ANALYXER = '--analyzer'
+const ALLOW_ANALYZER = '--analyzer'
 
 commander.version(getVersion(), '-v, --version').usage(logger.green.raw('<command> [Options]'))
 
@@ -27,8 +27,8 @@ commander
   .description(logger.green.raw('Build the project'))
   .action(async arg => {
     await beforeStart(service)
-    if (ALLOW_ANALYXER === arg) {
-      build(service, ALLOW_ANALYXER)
+    if (ALLOW_ANALYZER === arg) {
+      build(service, ALLOW_ANALYZER)
     }
     build(service, null)
   })
