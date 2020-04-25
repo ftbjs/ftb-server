@@ -5,7 +5,7 @@ import { base } from './base'
 
 export function prod(api) {
   base(api)
-  const { publicPath, context, outputDir } = api.webpackConfig
+  const { publicPath, context, outputDir, packages } = api.webpackConfig
 
   api.chainWebpack(config => {
     config
@@ -34,23 +34,25 @@ export function prod(api) {
         }
       ])
 
-    config.optimization.splitChunks({
-      cacheGroups: {
-        vendors: {
-          name: 'chunk-vendors',
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          chunks: 'initial'
-        },
-        common: {
-          name: 'chunk-common',
-          minChunks: 2,
-          priority: -20,
-          chunks: 'initial',
-          reuseExistingChunk: true
+    // build library ignore this
+    !packages &&
+      config.optimization.splitChunks({
+        cacheGroups: {
+          vendors: {
+            name: 'chunk-vendors',
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10,
+            chunks: 'initial'
+          },
+          common: {
+            name: 'chunk-common',
+            minChunks: 2,
+            priority: -20,
+            chunks: 'initial',
+            reuseExistingChunk: true
+          }
         }
-      }
-    })
+      })
 
     config.plugin('named-chunks').use(require('webpack/lib/NamedChunksPlugin'), [
       chunk => {
