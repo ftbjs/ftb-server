@@ -14,7 +14,8 @@ export function dev(api) {
       .path(path.resolve(api.webpackConfig.context, api.webpackConfig.outputDir))
       .end()
 
-    config.output.globalObject('this')
+    // https://github.com/webpack/webpack/issues/6642
+    config.output.globalObject(`(typeof self !== 'undefined' ? self : this)`)
 
     config.plugin('name-modules').use(webpack.NamedModulesPlugin)
 
