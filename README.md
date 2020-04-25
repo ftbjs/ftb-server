@@ -32,6 +32,9 @@ ftb-service serve
 
 // build project
 ftb-service build
+
+// visualize size of webpack output files
+ftb-service build --analyzer
 ```
 
 ## Required

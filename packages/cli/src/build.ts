@@ -1,13 +1,24 @@
 import webpack from 'webpack'
+import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'
 import { logger } from '@ftb/shared'
 import { prod } from './config/prod'
 import { deleteOldFolder } from './utils/deleteOldFolder'
 
-export default function build(service) {
+export default function build(service, options: string) {
   process.env.NODE_ENV = 'production'
 
   deleteOldFolder(service)
   prod(service)
+
+  options &&
+    service.chainWebpack(config => {
+      config.plugin('bundle-analyzer').use(BundleAnalyzerPlugin.BundleAnalyzerPlugin, [
+        {
+          analyzerPort: 1703,
+          analyzerMode: 'static'
+        }
+      ])
+    })
 
   // Ensure high priority for user-defined webpack configurations
   service.init()
