@@ -22,7 +22,7 @@ commander
   })
 
 commander
-  .command('build <options>')
+  .command('build [options]')
   .allowUnknownOption()
   .description(logger.green.raw('Build the project'))
   .action(async arg => {

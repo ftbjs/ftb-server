@@ -74,7 +74,7 @@ export function prod(api) {
       }
     ])
 
-    const MiniCssExtractPluginConfig = config.toConfig().output.library
+    const MiniCssExtractPluginConfig = packages
       ? {
           filename: `${config.toConfig().output.filename}.min.css`
         }
