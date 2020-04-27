@@ -1,6 +1,6 @@
 {
   "name": "@ftb/shared",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A utils tool",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
