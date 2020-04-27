@@ -1,8 +1,5 @@
 {
-  "name": "ftb-service",
   "private": true,
-  "root": true,
-  "version": "0.0.0",
   "description": "A tool to start a server with Webpack. support hot module replacement and build.",
   "scripts": {
     "build": "lerna run build --stream --parallel",
