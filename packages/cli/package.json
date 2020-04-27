@@ -59,6 +59,7 @@
     "url-loader": "^4.0.0",
     "webpack": "^4.42.1",
     "webpack-bundle-analyzer": "^3.7.0",
+    "webpack-chain": "^6.4.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
@@ -67,7 +68,6 @@
     "@types/inquirer": "^6.5.0",
     "@types/node": "^13.9.8",
     "@types/webpack": "^4.41.10",
-    "@types/webpack-dev-server": "^3.10.1",
-    "webpack-chain": "^6.4.0"
+    "@types/webpack-dev-server": "^3.10.1"
   }
 }
