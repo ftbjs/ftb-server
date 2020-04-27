@@ -70,5 +70,6 @@
     "@types/webpack": "^4.41.10",
     "@types/webpack-dev-server": "^3.10.1",
     "webpack-chain": "^6.4.0"
-  }
+  },
+  "gitHead": "8fcb0165e8520b00afb36a5bc53f59d6b193e33a"
 }
