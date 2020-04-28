@@ -1,6 +1,6 @@
 {
   "name": "@ftb/service",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "cli for ftb service",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
@@ -69,6 +69,5 @@
     "@types/node": "^13.9.8",
     "@types/webpack": "^4.41.10",
     "@types/webpack-dev-server": "^3.10.1"
-  },
-  "gitHead": "a9fd0b79043fff5e1b0a7332b42409f7ddb1dd8c"
+  }
 }
