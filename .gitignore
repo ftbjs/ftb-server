@@ -28,3 +28,6 @@ dist
 
 **/types/
 /src/
+
+
+lerna-debug.log
