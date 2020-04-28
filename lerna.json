@@ -1,9 +1,9 @@
 {
-  "npmClient": "npm",
   "packages": ["packages/*"],
   "command": {
-    "publishConfig": {
-      "access": "public"
+    "publish": {
+      "npmClient": "npm",
+      "verifyAccess": false
     }
   },
   "version": "independent"
