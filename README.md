@@ -21,25 +21,25 @@
 ## Install
 
 ```sh
-npm i @ftb/service -g
+npm i @ftbjs/service -g
 ```
 
 ## Usage
 
 ```js
 // start a local serve
-ftb-service serve
+ftbjs serve
 
 // build project
-ftb-service build
+ftbjs build
 
 // visualize size of webpack output files
-ftb-service build --analyzer
+ftbjs build --analyzer
 ```
 
 ## Required
 
-You need to have a src folder. and its has a index.js file. then run the `ftb-service serve` or `ftb-service build`. For more information please see [Example](https://github.com/ftbjs/ftb-service/tree/master/example)
+You need to have a src folder. and its has a index.js file. then run the `ftbjs serve` or `ftbjs build`. For more information please see [Example](https://github.com/ftbjs/ftb-service/tree/master/example)
 
 ## 🤝 Contributing
 

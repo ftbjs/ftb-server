@@ -1,6 +1,6 @@
 import inquirer from 'inquirer'
 import shelljs from 'shelljs'
-import { findExistSync, logger, spinner } from '@ftb/shared'
+import { findExistSync, logger, spinner } from '@ftbjs/shared'
 
 const packageJson = 'package.json'
 const nodeModules = 'node_modules'

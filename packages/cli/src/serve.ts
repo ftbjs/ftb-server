@@ -3,7 +3,7 @@ import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 import portfinder from 'portfinder'
 import defaultsdeep from 'lodash.defaultsdeep'
-import { logger, boxen } from '@ftb/shared'
+import { logger, boxen } from '@ftbjs/shared'
 import { dev } from './config/dev'
 
 const serve = async service => {

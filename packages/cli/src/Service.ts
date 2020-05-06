@@ -1,6 +1,6 @@
 import * as path from 'path'
 import Config from 'webpack-chain'
-import { findExistSync } from '@ftb/shared'
+import { findExistSync } from '@ftbjs/shared'
 import { generateConfig } from './utils/generateConfig'
 import { BasePathConfig, Options } from './interface'
 

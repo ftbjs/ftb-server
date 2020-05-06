@@ -1,4 +1,4 @@
-import { createSchema, validate } from '@ftb/shared'
+import { createSchema, validate } from '@ftbjs/shared'
 import { Options, ValidateSchema } from '../interface'
 
 const schema = createSchema(joi =>

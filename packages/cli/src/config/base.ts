@@ -1,7 +1,7 @@
 import * as path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { findExistSync } from '@ftb/shared'
+import { findExistSync } from '@ftbjs/shared'
 
 export function base(api) {
   const {

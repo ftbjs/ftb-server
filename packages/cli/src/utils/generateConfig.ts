@@ -1,6 +1,6 @@
 import * as path from 'path'
 import defaultsdeep from 'lodash.defaultsdeep'
-import { findExistSync, logger } from '@ftb/shared'
+import { findExistSync, logger } from '@ftbjs/shared'
 import { validateSchema, options } from './options'
 import { Options, BasePathConfig } from '../interface'
 

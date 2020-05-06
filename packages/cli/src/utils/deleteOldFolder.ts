@@ -1,5 +1,5 @@
 import shelljs from 'shelljs'
-import { findExistSync, logger, spinner } from '@ftb/shared'
+import { findExistSync, logger, spinner } from '@ftbjs/shared'
 
 export function deleteOldFolder(api) {
   if (findExistSync(api.webpackConfig.context, 'dist')) {

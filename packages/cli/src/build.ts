@@ -1,6 +1,6 @@
 import webpack from 'webpack'
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'
-import { logger } from '@ftb/shared'
+import { logger } from '@ftbjs/shared'
 import { prod } from './config/prod'
 import { deleteOldFolder } from './utils/deleteOldFolder'
 

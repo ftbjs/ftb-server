@@ -1,5 +1,5 @@
 {
-  "name": "@ftb/shared",
+  "name": "@ftbjs/shared",
   "version": "0.0.4",
   "description": "A utils tool",
   "scripts": {
