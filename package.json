@@ -5,7 +5,7 @@
     "build": "lerna run build --stream --parallel",
     "watch": "lerna run watch --stream --parallel",
     "version": "lerna version",
-    "release": "npm run build && lerna publish",
+    "release": "npm run build && npm run version && lerna publish from-git",
     "clean": "lerna clean --yes && rm -rf ./packages/**/package-lock.json && rm -rf ./packages/**/lib",
     "clean:package": "rm -rf ./packages/**/package-lock.json",
     "bootstrap": "npm i && lerna bootstrap",
