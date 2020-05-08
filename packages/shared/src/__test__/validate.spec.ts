@@ -20,8 +20,8 @@ describe('validate', () => {
     expect(validate(mockConfig(), schema).error).toBe(undefined)
   })
 
-  it('should return error value with Error object', () => {
+  it('should return correct error message "test" is not allowed', () => {
     const mockConfigValue = mockConfig({ test: '' })
-    expect(validate(mockConfigValue, schema).error).not.toBe(undefined)
+    expect(validate(mockConfigValue, schema).error.details[0].message).toBe('"test" is not allowed')
   })
 })
