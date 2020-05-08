@@ -43,7 +43,7 @@ You need to have a src folder. and its has a index.js file. then run the `ftbjs 
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/ftbjs/ftb-service/issues). You can also take a look at the [contributing guide]().
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/ftbjs/ftb-service/issues). You can also take a look at the [contributing guide](https://github.com/ftbjs/ftb-service/tree/master/Contribution.md).
 
 ## Show your support
 
