@@ -1,4 +1,4 @@
-import { validate, createSchema } from '../validate'
+import { validate, createSchema } from '../src/validate'
 
 describe('validate', () => {
   const schema = createSchema(joi =>
