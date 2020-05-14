@@ -37,6 +37,28 @@ ftbjs build
 ftbjs build --analyzer
 ```
 
+
+## ftb.config.js
+
+```js
+module.exports = {
+  devServer: {
+    port: 2021,
+    open: true
+  },
+  packages: true, // for build library need to set it as true
+  chainWebpack: (config) => {
+    if (process.env.NODE_ENV === 'production') {
+      config
+        .output
+          .filename('my-test.min.js')
+          .library('MyTest')
+          .libraryTarget('umd')
+    }
+  }
+}
+```
+
 ## Required
 
 You need to have a src folder. and its has a index.js file. then run the `ftbjs serve` or `ftbjs build`. For more information please see [Example](https://github.com/ftbjs/ftb-service/tree/master/example)
