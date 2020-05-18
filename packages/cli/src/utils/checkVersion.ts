@@ -2,7 +2,7 @@ import axios from 'axios'
 import { getVersion } from './version'
 
 const currentVersion = getVersion()
-const REMOTE_VERSION_URL = 'https://www.npmjs.com/package/@ftbjs/service'
+const REMOTE_VERSION_URL = 'https://registry.npmjs.com/@ftbjs/service'
 
 axios.defaults.timeout = 10000
 
@@ -18,11 +18,10 @@ export async function checkVersion() {
     return false
   }
 
-  const matchRule = /"version":"([^"]+)"/
-  const matchresult = res.data.match(matchRule)
+  const latestVersion = res.data['dist-tags'].latest
 
-  if (!matchresult) {
+  if (!latestVersion) {
     return false
   }
-  return matchresult[1] !== currentVersion
+  return latestVersion !== currentVersion
 }
