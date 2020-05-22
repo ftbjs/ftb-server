@@ -1,8 +1,9 @@
 import webpack from 'webpack'
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'
-import { logger } from '@ftbjs/shared'
+import { logger, boxen } from '@ftbjs/shared'
 import { prod } from './config/prod'
 import { deleteOldFolder } from './utils/deleteOldFolder'
+import { checkVersion } from './utils/checkVersion'
 
 export default function build(service, options) {
   process.env.NODE_ENV = 'production'
@@ -46,5 +47,19 @@ export default function build(service, options) {
         chunkModules: false
       }) + '\n\n'
     )
+
+    const status = await checkVersion()
+    if (status) {
+      const msg = []
+      msg.push(logger.yellow.raw('A new ftbjs cli version was found:\n\n'))
+      msg.push(logger.blackBright.raw(`Please run ${logger.green.raw('npm i @ftbjs/service@latest -g')}\n\n`))
+      msg.push(
+        logger.blackBright.raw(
+          `If you use yarn, you can run ${logger.green.raw('yarn add @ftbjs/service@latest -g')}\n\n`
+        )
+      )
+      msg.push(logger.blackBright.raw('Experience the latest features'))
+      console.log(boxen(msg.join(''), { padding: 1, borderColor: 'green' }))
+    }
   })
 }
