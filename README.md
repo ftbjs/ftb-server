@@ -37,7 +37,6 @@ ftbjs build
 ftbjs build --analyzer
 ```
 
-
 ## ftb.config.js
 
 ```js
@@ -47,13 +46,9 @@ module.exports = {
     open: true
   },
   packages: true, // for build library need to set it as true
-  chainWebpack: (config) => {
+  chainWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
-      config
-        .output
-          .filename('my-test.min.js')
-          .library('MyTest')
-          .libraryTarget('umd')
+      config.output.filename('my-test.min.js').library('MyTest').libraryTarget('umd')
     }
   }
 }

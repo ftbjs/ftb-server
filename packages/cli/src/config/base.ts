@@ -45,7 +45,7 @@ export function base(api) {
       .end()
 
     config.module
-      .rule('css')
+      .rule('scss')
       .test(/\.(sa|sc|c)ss$/)
       .use('style-loader')
       .loader(process.env.NODE_ENV === 'development' ? require.resolve('style-loader') : MiniCssExtractPlugin.loader)
@@ -55,6 +55,19 @@ export function base(api) {
       .end()
       .use('sass-loader')
       .loader(require.resolve('sass-loader'))
+      .end()
+
+    config.module
+      .rule('less')
+      .test(/\.less$/)
+      .use('style-loader')
+      .loader(process.env.NODE_ENV === 'development' ? require.resolve('style-loader') : MiniCssExtractPlugin.loader)
+      .end()
+      .use('css-loader')
+      .loader(require.resolve('css-loader'))
+      .end()
+      .use('less-loader')
+      .loader(require.resolve('less-loader'))
       .end()
 
     config.module
