@@ -4,7 +4,7 @@
 - fork the repo
 - git clone repo
 - cd ftb-service
-- npm run boostrap
+- npm run bootstrap
 - npm run watch(compile typescript, don't stop)
 
 // open a new terminal
