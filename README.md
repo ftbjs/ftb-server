@@ -20,11 +20,21 @@
 
 ## Install
 
+**Global**
+
 ```sh
 npm i @ftbjs/service -g
 ```
 
+**Local**
+
+```sh
+npm i @ftbjs/service -D
+```
+
 ## Usage
+
+**Global**
 
 ```js
 // start a local serve
@@ -35,6 +45,20 @@ ftbjs build
 
 // visualize size of webpack output files
 ftbjs build --analyzer
+```
+
+**Local**
+
+Add below code in your project's package.json
+
+```js
+...
+"scripts": {
+  "dev": "ftbjs serve",
+  "build": "ftbjs build",
+  "analyzer": "ftbjs build --analyzer"
+},
+...
 ```
 
 ## ftb.config.js
