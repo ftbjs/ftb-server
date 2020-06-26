@@ -1,6 +1,6 @@
 {
   "name": "@ftbjs/service",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "cli for ftb service",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
