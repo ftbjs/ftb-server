@@ -4,11 +4,15 @@
   "description": "",
   "main": "ftb.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ftbjs serve",
+    "build": "ftbjs build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@antv/g2": "^4.0.7"
+  },
+  "devDependencies": {
+    "@ftbjs/service": "^0.3.0"
   }
 }
