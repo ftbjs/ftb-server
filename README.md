@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to ftb-service 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/npm/v/@ftbjs/service" />
   <a href=" " target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
@@ -8,8 +8,10 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
   <a href="https://github.com/ftbjs/ftb-service/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/BiYuqi/ftb-service" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/ftbjs/ftb-service" />
   </a>
+  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/ftbjs/ftb-service" />
+
 </p>
 
 > A tool to start a server with Webpack. support hot module replacement and build.
