@@ -39,6 +39,12 @@ export async function beforeStart(api) {
             name: 'status',
             message: 'Does it automatically install dependencies for you?',
             choices: ['Yes', 'No']
+          },
+          {
+            type: 'list',
+            name: 'pack',
+            message: 'Do you want to use npm or yarn?',
+            choices: ['npm', 'yarn']
           }
         ])
         .then(answer => {
@@ -46,7 +52,7 @@ export async function beforeStart(api) {
             const spinnerDownloading = spinner(
               `${logger.cyan('\nDependencies will be installed for you soon.')}\n`
             ).start('Downloading...\n')
-            if (shelljs.exec('npm install').code === 0) {
+            if (shelljs.exec(`${answer.pack} install`).code === 0) {
               spinnerDownloading.succeed(`Installed successfully.\n`)
               spinnerDownloading.stop()
               resolve()
