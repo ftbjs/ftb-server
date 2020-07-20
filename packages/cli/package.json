@@ -22,7 +22,8 @@
   "homepage": "https://github.com/ftbjs/ftb-service/tree/master/packages/cli#readme",
   "license": "MIT",
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -40,6 +41,7 @@
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@ftbjs/shared": "^0.2.2",
+    "@ftbjs/template": "^0.0.0",
     "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
     "commander": "^5.0.0",

@@ -2,6 +2,7 @@
 
 import commander from 'commander'
 import { logger } from '@ftbjs/shared'
+import { createLibrary } from '@ftbjs/template'
 import serve from './serve'
 import build from './build'
 import { getVersion } from './utils/version'
@@ -18,7 +19,7 @@ commander
   .description(logger.green.raw('Start local server'))
   .action(async () => {
     await beforeStart(service)
-    serve(service)
+    await serve(service)
   })
 
 commander
@@ -31,6 +32,14 @@ commander
       build(service, ALLOW_ANALYZER)
     }
     build(service, null)
+  })
+
+commander
+  .command('create <app-name>]')
+  .option('-f', 'Remove sauce')
+  .description(logger.green.raw('Create a project with cli.'))
+  .action(async (arg, options) => {
+    await createLibrary({ appName: arg, cmd: options.parent.args })
   })
 
 commander

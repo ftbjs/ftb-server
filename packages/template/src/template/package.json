@@ -1,0 +1,19 @@
+{
+  "name": "{{packageName}}",
+  "version": "0.0.0",
+  "description": "{{description}}",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "dev": "ftbjs serve",
+    "build": "ftbjs build"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "",
+  "homepage": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ftbjs/service": "0.3.2"
+  }
+}

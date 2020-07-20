@@ -1,0 +1,22 @@
+{
+  "name": "@ftbjs/template",
+  "version": "0.0.0",
+  "description": "Quickly create NPM packages based on FTBJS",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "watch": "tsc -w -p ./tsconfig.json"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "author": "<biyuqiwan@163.com>",
+  "homepage": "https://github.com/ftbjs/ftb-service/tree/master/packages/template",
+  "license": "MIT",
+  "dependencies": {
+    "@ftbjs/shared": "0.2.2",
+    "fs-extra": "^9.0.1",
+    "inquirer": "^7.3.2"
+  }
+}
