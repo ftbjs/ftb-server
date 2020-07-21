@@ -16,7 +16,7 @@ commander.version(getVersion(), '-v, --version').usage(logger.green.raw('<comman
 
 commander
   .command('serve')
-  .description(logger.green.raw('Start local server'))
+  .description(logger.green.raw('start a local server.'))
   .action(async () => {
     await beforeStart(service)
     await serve(service)
@@ -25,7 +25,7 @@ commander
 commander
   .command('build [options]')
   .allowUnknownOption()
-  .description(logger.green.raw('Build the project'))
+  .description(logger.green.raw('build project.'))
   .action(async arg => {
     await beforeStart(service)
     if (ALLOW_ANALYZER === arg) {
@@ -35,18 +35,18 @@ commander
   })
 
 commander
-  .command('create <app-name>]')
-  .option('-f', 'Remove sauce')
-  .description(logger.green.raw('Create a project with cli.'))
+  .command('create <app-name>')
+  .option('-f', 'remove old directory')
+  .description(logger.green.raw('Create package template using cli.'))
   .action(async (arg, options) => {
     await createLibrary({ appName: arg, cmd: options.parent.args })
   })
 
 commander
   .command('*')
-  .description(`Type a wrong command. Please try ${logger.green.raw('ftb-service -h')}`)
+  .description(`type a wrong command. Please try ${logger.green.raw('ftbjs -h')}`)
   .action(() => {
-    logger.green('Please try `ftb-service -h`, Get the whole feature list.')
+    logger.green('please try `ftbjs -h`, get the whole feature list.')
   })
 
 commander.parse(process.argv)
