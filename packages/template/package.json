@@ -11,6 +11,9 @@
     "lib",
     "src"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "<biyuqiwan@163.com>",
   "homepage": "https://github.com/ftbjs/ftb-service/tree/master/packages/template",
   "license": "MIT",
