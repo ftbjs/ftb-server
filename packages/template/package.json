@@ -1,6 +1,6 @@
 {
   "name": "@ftbjs/template",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Quickly create NPM packages based on ftbjs",
   "main": "lib/index.js",
   "scripts": {
