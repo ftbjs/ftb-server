@@ -1,6 +1,6 @@
 {
   "name": "@ftbjs/shared",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A utils tool",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
@@ -29,11 +29,11 @@
     "url": "https://github.com/ftbjs/ftb-service/issues"
   },
   "dependencies": {
-    "joi": "^17.1.1",
     "boxen": "^4.2.0",
     "chalk": "^4.0.0",
     "fs-extra": "^9.0.1",
     "inquirer": "^7.3.3",
+    "joi": "^17.1.1",
     "ora": "^4.0.3",
     "shelljs": "^0.8.4"
   }
