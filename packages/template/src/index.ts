@@ -1,6 +1,5 @@
 import * as path from 'path'
-import fs from 'fs-extra'
-import { logger } from '@ftbjs/shared'
+import { logger, fs } from '@ftbjs/shared'
 import { ask } from './ask'
 import { validateAppName } from './validate'
 

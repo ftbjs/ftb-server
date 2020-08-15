@@ -8,7 +8,7 @@ module.exports = {
     if (process.env.NODE_ENV === 'production') {
       config
         .output
-        // You should rename the following variables
+        // You can rename the following line's text as package name
         .filename('index.min.js')
         .library('MyTest')
         .libraryTarget('umd')

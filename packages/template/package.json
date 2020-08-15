@@ -18,8 +18,6 @@
   "homepage": "https://github.com/ftbjs/ftb-service/tree/master/packages/template",
   "license": "MIT",
   "dependencies": {
-    "@ftbjs/shared": "^0.2.3",
-    "fs-extra": "^9.0.1",
-    "inquirer": "^7.3.2"
+    "@ftbjs/shared": "^0.2.3"
   }
 }

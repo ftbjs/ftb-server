@@ -1,5 +1,5 @@
 export function createSchema(fn) {
-  return fn(require('@hapi/joi'))
+  return fn(require('joi'))
 }
 
 export function validate(obj, schema) {
