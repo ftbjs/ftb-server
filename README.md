@@ -33,6 +33,7 @@ npm i @ftbjs/service -g
 ```sh
 npm i @ftbjs/service -D
 ```
+
 ## Create Template Quickly
 
 ```js
